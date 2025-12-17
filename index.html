@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhittin Akın Hava Durumu | Full Screen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="bg-layer" class="bg-layer default-bg"></div>
+    <div class="overlay"></div>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="brand-container">
+                <div class="logo">HAVA DURUMU</div>
+                <small class="sub-logo">Muhittin Akın v3.0</small>
+            </div>
+            
+            <div class="search-wrapper">
+                <input type="text" id="city-input" placeholder="Şehir ara..." autocomplete="off">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <button id="locate-btn" title="Konumumu Bul"><i class="fas fa-location-crosshairs"></i></button>
+            </div>
+        </header>
+
+        <div class="split-view">
+            
+            <div id="map-container" class="map-wrapper hidden">
+                <div id="map"></div>
+            </div>
+
+            <main id="weather-content" class="weather-panel hidden">
+                
+                <div class="top-row">
+                    <section class="hero-section">
+                        <i id="main-icon" class="fas fa-cloud"></i>
+                        <div class="hero-text">
+                            <h1 id="temp">0°</h1>
+                            <div class="weather-meta">
+                                <span id="city-name">--</span>, <span id="weather-desc">--</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="assistant-card">
+                        <div class="assistant-header">
+                            <i class="fas fa-microchip"></i> Muhittin Asistan
+                            <button id="speak-btn" class="speak-btn"><i class="fas fa-volume-up"></i></button>
+                        </div>
+                        <p id="advice-text">Veriler bekleniyor...</p>
+                        <div id="voice-wave" class="voice-wave hidden">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </section>
+                </div>
+
+                <section class="hourly-section">
+                    <div id="hourly-scroll" class="hourly-scroll"></div>
+                </section>
+
+                <section class="details-grid">
+                    <div class="detail-box">
+                        <i class="fas fa-wind"></i> <span id="wind">0</span> <small>Rüzgar</small>
+                    </div>
+                    <div class="detail-box">
+                        <i class="fas fa-tint"></i> <span id="humidity">0</span> <small>Nem</small>
+                    </div>
+                    <div class="detail-box">
+                        <i class="fas fa-sun"></i> <span id="uv-index">0</span> <small>UV</small>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Uydulara bağlanılıyor...</p>
+        </div>
+        <div id="error-toast" class="error-toast hidden"></div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
